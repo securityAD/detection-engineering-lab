@@ -161,8 +161,3 @@ This project uses only open-source tools. Detection rules and Splunk content are
 * MITRE ATT\&CK
 
 ---
-
-```
-
-Would you like me to generate the first Sigma rule YAML (`t1059-powershell-execution.yml`) and a matching Splunk query file next?
-```
