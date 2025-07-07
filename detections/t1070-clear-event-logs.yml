@@ -1,0 +1,24 @@
+title: Windows Event Log Clearing
+id: 2b29065e-d1c6-4f9a-88c7-97ac5b22e7f1
+status: experimental
+description: Detects clearing of Windows event logs, often used as anti-forensics technique.
+author: Aaron Diaz
+date: 2025/07/04
+references:
+  - https://attack.mitre.org/techniques/T1070/004/
+tags:
+  - attack.defense_evasion
+  - attack.t1070.004
+logsource:
+  product: windows
+  service: sysmon
+  definition: Sysmon Event ID 1102
+detection:
+  selection:
+    EventID: 1102
+  condition: selection
+fields:
+  - EventID
+falsepositives:
+  - Admin log maintenance
+level: high
