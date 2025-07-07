@@ -1,0 +1,27 @@
+title: Process Injection via Remote Thread Creation
+id: f2a3c5c6-d157-4e18-9b36-3955a30d6f3e
+status: experimental
+description: Detects process injection by identifying remote thread creation (e.g., using CreateRemoteThread).
+author: Aaron Diaz
+date: 2025/07/04
+references:
+  - https://attack.mitre.org/techniques/T1055/
+tags:
+  - attack.privilege_escalation
+  - attack.t1055
+logsource:
+  product: windows
+  service: sysmon
+  definition: Sysmon Event ID 10
+detection:
+  selection:
+    EventID: 10
+  condition: selection
+fields:
+  - EventID
+  - SourceImage
+  - TargetImage
+falsepositives:
+  - Debugging tools
+  - Some security software
+level: high
