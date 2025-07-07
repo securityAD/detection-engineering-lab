@@ -1,0 +1,4 @@
+index=winlogs 
+sourcetype="WinEventLog:Microsoft-Windows-Sysmon/Operational" 
+EventCode=13 
+TargetObject="*\\CurrentVersion\\Run*"
