@@ -1,0 +1,28 @@
+title: Suspicious PowerShell Execution via Invoke-Expression
+id: 3f7d6e40-ef7a-4f26-9d4d-3e4e5c142fd0
+status: experimental
+description: Detects the use of Invoke-Expression (IEX) in PowerShell script blocks, which is often used for obfuscation or execution of malicious payloads.
+author: Aaron Diaz
+date: 2025/07/04
+references:
+  - https://attack.mitre.org/techniques/T1059/001/
+tags:
+  - attack.execution
+  - attack.t1059.001
+logsource:
+  product: windows
+  service: powershell
+  definition: Sysmon Event ID 4104
+detection:
+  selection:
+    EventID: 4104
+    ScriptBlockText|contains:
+      - 'Invoke-Expression'
+      - 'IEX'
+  condition: selection
+fields:
+  - EventID
+  - ScriptBlockText
+falsepositives:
+  - Legitimate administrative scripts
+level: medium
