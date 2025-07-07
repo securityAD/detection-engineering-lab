@@ -1,0 +1,28 @@
+title: Obfuscated PowerShell Execution
+id: 94a4b106-cbaf-40ea-b6fa-78509e08cf44
+status: experimental
+description: Detects use of obfuscated PowerShell via base64 encoding or encoded commands.
+author: Aaron Diaz
+date: 2025/07/04
+references:
+  - https://attack.mitre.org/techniques/T1027/
+tags:
+  - attack.defense_evasion
+  - attack.t1027
+logsource:
+  product: windows
+  service: powershell
+  definition: Sysmon Event ID 4104
+detection:
+  selection:
+    EventID: 4104
+    ScriptBlockText|contains:
+      - '-EncodedCommand'
+      - 'FromBase64String'
+  condition: selection
+fields:
+  - EventID
+  - ScriptBlockText
+falsepositives:
+  - Legitimate automation scripts
+level: high
