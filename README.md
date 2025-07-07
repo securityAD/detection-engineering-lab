@@ -147,6 +147,13 @@ ATT\&CK Navigator JSON: [`mitre_coverage.json`](dashboards/mitre_coverage.json)
 
 ---
 
+## 👋 Author
+
+**Aaron Diaz**
+🔗 [LinkedIn](https://linkedin.com/in/aaron918)
+
+---
+
 ## 🧾 License
 
 This project uses only open-source tools. Detection rules and Splunk content are shared under [MIT License](LICENSE).
