@@ -1,0 +1,4 @@
+index=winlogs 
+sourcetype="WinEventLog:Microsoft-Windows-Sysmon/Operational" 
+EventCode=4104 
+ScriptBlockText="*-EncodedCommand*" OR ScriptBlockText="*FromBase64String*"
