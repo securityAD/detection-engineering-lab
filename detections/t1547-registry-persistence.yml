@@ -1,0 +1,27 @@
+title: Registry Run Key Persistence (User)
+id: e9f5f466-5c0b-49ff-81e7-85b34c4e77a7
+status: experimental
+description: Detects creation or modification of registry Run keys used for persistence.
+author: Aaron Diaz
+date: 2025/07/04
+references:
+  - https://attack.mitre.org/techniques/T1547/001/
+tags:
+  - attack.persistence
+  - attack.t1547.001
+logsource:
+  product: windows
+  service: sysmon
+  definition: Sysmon Event ID 13
+detection:
+  selection:
+    EventID: 13
+    TargetObject|contains:
+      - 'CurrentVersion\\Run'
+  condition: selection
+fields:
+  - EventID
+  - TargetObject
+falsepositives:
+  - Legitimate software installs or auto-start configs
+level: medium
