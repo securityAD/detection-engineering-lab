@@ -13,7 +13,7 @@ Simulate adversary behavior using [Atomic Red Team](https://github.com/redcanary
 ## 2. Clone Atomic Red Team Repo
 
 ```powershell
-git clone https://github.com/redcanaryco/atomic-red-team.git
+git clone https://github.com/redcanaryco/invoke-atomicredteam.git
 cd atomic-red-team
 ```
 
